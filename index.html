@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#183c35">
+  <meta name="color-scheme" content="light">
+  <title>一路向西 · 南疆旅行手册</title>
+  <style>
+    :root{
+      --ink:#183c35;--ink-2:#3f5d56;--paper:#f6f0e5;--paper-2:#fffaf1;
+      --jade:#2b7a67;--jade-soft:#dcebe4;--sand:#d9b16f;--sun:#f0a14a;
+      --red:#bf594d;--red-soft:#f9e6df;--blue:#487ca7;--line:#ded3c0;
+      --shadow:0 18px 50px rgba(62,49,28,.10);--radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;overflow-x:hidden;background:
+      radial-gradient(circle at 10% 2%,rgba(240,161,74,.13),transparent 27rem),
+      radial-gradient(circle at 94% 16%,rgba(43,122,103,.10),transparent 25rem),
+      var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.65}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.24;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}
+    button,summary,a{touch-action:manipulation}
+    .page{width:100%;max-width:980px;margin:auto;padding:18px 16px 80px}
+    .masthead{padding:14px 5px 22px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end}.masthead>*{min-width:0}
+    .eyebrow{font-size:12px;letter-spacing:.18em;font-weight:800;color:var(--red);text-transform:uppercase}
+    h1{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(32px,8vw,62px);line-height:1.03;margin:8px 0 2px;letter-spacing:-.04em}
+    .mast-meta{text-align:right;color:var(--ink-2);font-size:13px;white-space:nowrap}
+    .mast-meta strong{display:block;color:var(--ink);font-size:18px}
+    .focus-card{background:var(--ink);color:#fff;border-radius:32px;padding:24px;box-shadow:0 24px 70px rgba(20,53,47,.25);position:relative;overflow:hidden}
+    .focus-card:after{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(255,255,255,.16);border-radius:44% 56% 61% 39%;right:-170px;top:-180px;transform:rotate(22deg);box-shadow:0 0 0 28px rgba(255,255,255,.03),0 0 0 60px rgba(255,255,255,.025)}
+    .focus-head{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#f4c981}
+    .pulse{width:9px;height:9px;background:#f0a14a;border-radius:50%;box-shadow:0 0 0 0 rgba(240,161,74,.7);animation:pulse 1.8s infinite}
+    @keyframes pulse{70%{box-shadow:0 0 0 11px rgba(240,161,74,0)}100%{box-shadow:0 0 0 0 rgba(240,161,74,0)}}
+    .next-title{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(25px,6vw,40px);line-height:1.2;margin:16px 0 4px;position:relative;z-index:1}
+    .next-meta{color:#c9dbd5;font-size:14px;position:relative;z-index:1}
+    .countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:23px;position:relative;z-index:1}
+    .countbox{background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.12);border-radius:17px;text-align:center;padding:11px 4px 9px;backdrop-filter:blur(8px)}
+    .countbox b{display:block;font-variant-numeric:tabular-nums;font-size:clamp(24px,7vw,45px);line-height:1;font-weight:650;letter-spacing:-.04em}
+    .countbox span{font-size:10px;color:#bcd0ca;letter-spacing:.12em}
+    .focus-foot{margin-top:17px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;color:#bcd0ca;display:flex;justify-content:space-between;gap:10px;position:relative;z-index:1}
+    .quicknav{display:flex;gap:8px;overflow-x:auto;padding:14px 2px 5px;scrollbar-width:none;position:sticky;top:0;z-index:20;background:linear-gradient(var(--paper) 72%,transparent)}
+    .quicknav::-webkit-scrollbar{display:none}.quicknav a{white-space:nowrap;background:rgba(255,250,241,.92);border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:12px;font-weight:750;box-shadow:0 5px 16px rgba(54,45,29,.05)}
+    section{margin-top:42px}.section-kicker{font-size:11px;color:var(--red);font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+    .section-title{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(27px,6vw,40px);line-height:1.15;margin:5px 0 6px}
+    .section-note{margin:0;color:var(--ink-2);font-size:13px;max-width:660px}
+    .card{min-width:0;background:rgba(255,250,241,.94);border:1px solid rgba(205,189,161,.65);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .map-card{margin-top:18px;padding:13px;overflow:hidden}
+    .map-card svg{display:block;width:100%;height:auto;border-radius:18px;background:#ede5d4}
+    .map-legend{display:flex;gap:7px;overflow-x:auto;padding:12px 3px 2px;scrollbar-width:none}.map-legend::-webkit-scrollbar{display:none}
+    .legend-chip{display:flex;gap:6px;align-items:center;white-space:nowrap;font-size:11px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 9px}.legend-chip i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+    .alert-stack{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+    .alert{padding:15px;border-radius:18px;background:var(--red-soft);border:1px solid #efc3b7;font-size:12px;color:#783c34}.alert b{display:block;font-size:14px;color:#702e26;margin-bottom:3px}.alert:nth-child(2){background:#fff0d7;border-color:#efcf99;color:#71501c}.alert:nth-child(2) b{color:#65440d}.alert:nth-child(3){background:var(--jade-soft);border-color:#b9d8cc;color:#315f54}.alert:nth-child(3) b{color:#214e44}
+    .booking-group{margin-top:22px}.subhead{display:flex;align-items:center;gap:10px;margin:0 0 11px}.subhead h3{font-size:18px;margin:0}.subhead span{font-size:10px;background:var(--jade-soft);color:var(--jade);font-weight:850;border-radius:999px;padding:3px 8px}
+    .booking-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .booking{padding:18px;min-height:150px;position:relative;overflow:hidden}.booking .type{font-size:10px;font-weight:850;letter-spacing:.12em;color:var(--red)}
+    .booking h4{font-size:18px;line-height:1.35;margin:7px 0 5px}.booking p{font-size:12px;color:var(--ink-2);margin:3px 0}.booking .bigtime{font-family:Georgia,serif;font-size:26px;color:var(--ink);font-weight:700}.booking .arrow{color:var(--sun);padding:0 5px}.booking .stamp{position:absolute;right:12px;top:12px;font-size:9px;border:1px solid #a8cdbc;color:var(--jade);border-radius:999px;padding:3px 7px;font-weight:800;transform:rotate(3deg)}
+    .hotel-list{display:grid;gap:10px}.hotel{padding:18px;display:grid;grid-template-columns:92px 1fr auto;gap:16px;align-items:center}.hotel-date{font-weight:800;color:var(--red);font-size:13px}.hotel-date small{display:block;color:var(--ink-2);font-weight:600}.hotel h4{font-size:16px;line-height:1.35;margin:0 0 5px}.hotel p{font-size:12px;color:var(--ink-2);margin:2px 0}.hotel-actions{display:flex;gap:7px;align-items:center}.mini-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;border-radius:999px;border:1px solid var(--line);background:#fff;padding:7px 11px;font-size:11px;font-weight:800;color:var(--ink)}.mini-btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .day-list{display:grid;gap:15px;margin-top:20px}.day{overflow:hidden}.day-head{padding:19px 20px 14px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:flex-start;background:linear-gradient(115deg,rgba(255,255,255,.85),rgba(246,238,224,.86))}.date-tile{width:56px;flex:0 0 56px;text-align:center;border-radius:15px;background:var(--ink);color:#fff;padding:7px 3px}.date-tile b{font-size:20px;line-height:1;display:block}.date-tile span{font-size:9px;letter-spacing:.08em;color:#d2dedb}.day-title{flex:1;min-width:0}.day-title h3{font-family:Georgia,"Songti SC","STSong",serif;margin:0;font-size:22px;line-height:1.25}.day-title p{margin:4px 0 0;font-size:12px;color:var(--ink-2)}.day-state{font-size:9px;font-weight:850;border-radius:999px;padding:4px 8px;background:var(--jade-soft);color:var(--jade);white-space:nowrap}
+    .route-details{border-bottom:1px solid var(--line);background:#f3ede1}.route-details summary{list-style:none;padding:12px 20px;font-size:12px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.route-details summary::-webkit-details-marker{display:none}.route-details summary:after{content:"＋";font-size:18px}.route-details[open] summary:after{content:"−"}.route-content{padding:0 18px 16px}.route-line{display:flex;align-items:center;gap:0;overflow-x:auto;padding:9px 2px 13px;scrollbar-width:none}.route-line::-webkit-scrollbar{display:none}.route-stop{display:flex;flex-direction:column;align-items:center;min-width:95px;text-align:center;font-size:10px;color:var(--ink-2)}.route-stop i{width:13px;height:13px;background:var(--day);border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 1px var(--day);margin-bottom:5px}.route-stroke{height:3px;min-width:45px;flex:1;background-image:linear-gradient(90deg,var(--day) 55%,transparent 0);background-size:9px 3px;margin-top:-19px}.route-action{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:11px}.route-action small{color:var(--ink-2)}
+    .timeline{padding:8px 20px 19px}.event{display:grid;grid-template-columns:62px 22px 1fr;gap:4px;position:relative;padding:12px 0}.event:not(:last-child):before{content:"";position:absolute;left:72px;top:28px;bottom:-15px;border-left:1px dashed #ccbfa8}.event time{font-variant-numeric:tabular-nums;font-size:13px;font-weight:850;color:var(--red);padding-top:1px}.event-dot{width:10px;height:10px;margin-top:7px;border-radius:50%;background:var(--day);border:2px solid #fff;box-shadow:0 0 0 1px var(--day);z-index:1}.event h4{font-size:15px;margin:0;line-height:1.42}.event p{font-size:12px;color:var(--ink-2);margin:4px 0 0}.event .tag{display:inline-block;margin-left:5px;font-size:9px;vertical-align:1px;border:1px solid #e7b8aa;color:#963f34;background:#fff2ed;padding:1px 6px;border-radius:99px;font-weight:850}.event .tag.ok{color:#216353;border-color:#b6d7cb;background:#e8f3ee}.place-link{border-bottom:1px dashed currentColor}.place-link:after{content:" ↗";font-size:.8em;color:var(--sun)}
+    .advice{margin:0 20px 18px;padding:13px 14px;border-radius:14px;background:#fff3de;border:1px solid #efd19c;font-size:11px;color:#6d4d19}.advice b{color:#543703}
+    .todo-list,.tips-grid{margin-top:18px}.todo-list{display:grid;gap:9px;counter-reset:todo}.todo{counter-increment:todo;display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:11px;padding:14px 16px}.todo:before{content:counter(todo,decimal-leading-zero);font-family:Georgia,serif;font-size:19px;color:var(--red)}.todo b{font-size:14px;display:block}.todo p{font-size:11px;color:var(--ink-2);margin:2px 0 0}.priority{font-size:9px;font-weight:850;border-radius:999px;padding:4px 7px;background:var(--red-soft);color:var(--red);white-space:nowrap}.priority.mid{background:#fff0d7;color:#7c581b}
+    .tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tip{padding:17px}.tip .icon{font-size:22px}.tip h3{font-size:14px;margin:6px 0 4px}.tip p{font-size:11px;color:var(--ink-2);margin:0}.hotline{margin-top:14px;padding:18px;display:flex;justify-content:space-between;gap:12px;align-items:center}.hotline strong{font-size:15px}.hotline p{font-size:11px;color:var(--ink-2);margin:2px 0 0}.hotline-links{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+    footer{text-align:center;margin-top:48px;color:#6e776e;font-size:11px}.seal{width:48px;height:48px;border:2px solid var(--red);border-radius:50%;display:grid;place-items:center;color:var(--red);font-family:serif;font-weight:800;margin:0 auto 8px;transform:rotate(-8deg)}
+    .offline-toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translate(-50%,130%);z-index:99;background:#173f37;color:white;border-radius:999px;padding:10px 16px;font-size:11px;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:.25s}.offline-toast.show{transform:translate(-50%,0)}
+    @media(max-width:720px){
+      .page{padding-left:12px;padding-right:12px}.masthead{align-items:flex-start}.mast-meta{font-size:10px;white-space:normal;max-width:112px}.mast-meta strong{font-size:14px}.focus-card{padding:20px;border-radius:26px}.focus-foot{display:block}.focus-foot span{display:block;margin-top:3px}.alert-stack,.booking-grid,.tips-grid{grid-template-columns:1fr}.hotel{grid-template-columns:1fr;gap:5px}.hotel-actions{margin-top:7px}.day-head{padding:16px 14px 12px}.timeline{padding:7px 14px 17px}.event{grid-template-columns:54px 19px minmax(0,1fr)}.event:not(:last-child):before{left:62px}.advice{margin-left:14px;margin-right:14px}.route-details summary{padding-left:14px;padding-right:14px}.route-content{padding-left:12px;padding-right:12px}.todo{grid-template-columns:32px 1fr}.todo .priority{grid-column:2;justify-self:start}.hotline{align-items:flex-start;flex-direction:column}.hotline-links{justify-content:flex-start}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}.pulse{animation:none}}
+    @media print{body{background:#fff}.page{max-width:none;padding:0}.quicknav,.route-action,.mini-btn,.offline-toast{display:none!important}.card,.focus-card{box-shadow:none;break-inside:avoid}.day{break-inside:avoid}.route-details:not([open]) .route-content{display:block}.focus-card{background:#183c35!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">South Xinjiang · 4 friends</div>
+        <h1>一路向西</h1>
+      </div>
+      <div class="mast-meta"><strong>南疆旅行手册</strong>2026.09.25 — 10.05 · 11天</div>
+    </header>
+
+    <section class="focus-card" id="focus" aria-live="polite">
+      <div class="focus-head"><i class="pulse"></i> 此刻关注 · NEXT UP</div>
+      <div class="next-title" id="nextTitle">准备出发</div>
+      <div class="next-meta" id="nextMeta">正在读取下一项行程</div>
+      <div class="countdown">
+        <div class="countbox"><b id="cdD">00</b><span>天</span></div>
+        <div class="countbox"><b id="cdH">00</b><span>时</span></div>
+        <div class="countbox"><b id="cdM">00</b><span>分</span></div>
+        <div class="countbox"><b id="cdS">00</b><span>秒</span></div>
+      </div>
+      <div class="focus-foot"><div id="focusHint">建议至少提前2小时到机场</div><span>所有时间均为北京时间（UTC+8）</span></div>
+    </section>
+
+    <nav class="quicknav" aria-label="页面导航">
+      <a href="#route">总览地图</a><a href="#bookings">确认预订</a><a href="#days">逐日行程</a><a href="#todos">待办清单</a><a href="#tips">实用贴士</a>
+    </nav>
+
+    <section id="route">
+      <div class="section-kicker">Route at a glance</div>
+      <h2 class="section-title">从龟兹到帕米尔</h2>
+      <p class="section-note">约 1,800 公里的南疆横穿：库车的红色峡谷、塔克拉玛干的公路、昆仑山脚，再到喀什与帕米尔高原。</p>
+      <div class="card map-card">
+        <svg viewBox="0 0 900 440" role="img" aria-label="南疆行程手绘示意地图">
+          <defs>
+            <filter id="rough"><feTurbulence baseFrequency=".018" numOctaves="2" seed="8" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/></filter>
+            <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#c9bda5" opacity=".34"/></pattern>
+          </defs>
+          <rect width="900" height="440" rx="26" fill="#efe7d7"/><rect width="900" height="440" rx="26" fill="url(#dots)"/>
+          <path d="M55 102 Q125 58 210 91 T365 70 T530 92 T705 68 T858 104" fill="none" stroke="#cdbb9a" stroke-width="19" opacity=".23" filter="url(#rough)"/>
+          <path d="M92 353 Q183 295 270 336 T435 320 T610 347 T813 298" fill="none" stroke="#d9c9aa" stroke-width="14" opacity=".24" filter="url(#rough)"/>
+          <path d="M120 144 Q164 190 215 181" fill="none" stroke="#d86b55" stroke-width="6" stroke-linecap="round" filter="url(#rough)"/>
+          <path d="M215 181 Q292 209 350 234" fill="none" stroke="#d4933d" stroke-width="6" stroke-linecap="round" filter="url(#rough)"/>
+          <path d="M350 234 Q444 280 515 295" fill="none" stroke="#2f8170" stroke-width="6" stroke-linecap="round" filter="url(#rough)"/>
+          <path d="M515 295 Q572 340 620 356" fill="none" stroke="#4b87ad" stroke-width="6" stroke-linecap="round" filter="url(#rough)"/>
+          <path d="M620 356 Q618 282 695 222" fill="none" stroke="#8b6aaa" stroke-width="6" stroke-linecap="round" stroke-dasharray="9 8" filter="url(#rough)"/>
+          <path d="M695 222 Q766 174 808 119" fill="none" stroke="#bf594d" stroke-width="6" stroke-linecap="round" filter="url(#rough)"/>
+          <path d="M808 119 Q752 83 691 123 Q628 159 580 205" fill="none" stroke="#244e77" stroke-width="6" stroke-linecap="round" filter="url(#rough)"/>
+          <g font-family="sans-serif" fill="#173f37">
+            <g transform="translate(120 144)"><circle r="12" fill="#d86b55" stroke="#fff" stroke-width="4"/><text x="0" y="-23" font-size="18" font-weight="800" text-anchor="middle">库车</text><text x="0" y="31" font-size="11" text-anchor="middle">西悦宿集 · 2晚</text></g>
+            <g transform="translate(350 234)"><circle r="12" fill="#d4933d" stroke="#fff" stroke-width="4"/><text x="0" y="-23" font-size="18" font-weight="800" text-anchor="middle">阿拉尔</text><text x="0" y="31" font-size="11" text-anchor="middle">沙漠之门 · 1晚</text></g>
+            <g transform="translate(515 295)"><circle r="12" fill="#2f8170" stroke="#fff" stroke-width="4"/><text x="0" y="-23" font-size="18" font-weight="800" text-anchor="middle">和田</text><text x="0" y="31" font-size="11" text-anchor="middle">亚朵 · 1晚</text></g>
+            <g transform="translate(620 356)"><circle r="12" fill="#4b87ad" stroke="#fff" stroke-width="4"/><text x="0" y="-23" font-size="18" font-weight="800" text-anchor="middle">昆仑山脚</text><text x="0" y="31" font-size="11" text-anchor="middle">归址野奢 · 1晚</text></g>
+            <g transform="translate(695 222)"><circle r="12" fill="#8b6aaa" stroke="#fff" stroke-width="4"/><text x="0" y="-23" font-size="18" font-weight="800" text-anchor="middle">喀什</text><text x="0" y="31" font-size="11" text-anchor="middle">希尔顿惠庭 · 2晚</text></g>
+            <g transform="translate(808 119)"><circle r="12" fill="#bf594d" stroke="#fff" stroke-width="4"/><text x="0" y="-23" font-size="18" font-weight="800" text-anchor="middle">塔县</text><text x="0" y="31" font-size="11" text-anchor="middle">亚朵 · 1晚</text></g>
+            <g transform="translate(580 205)"><circle r="10" fill="#244e77" stroke="#fff" stroke-width="4"/><text x="-12" y="-19" font-size="15" font-weight="800" text-anchor="end">喀什机场</text><text x="-12" y="1" font-size="10" text-anchor="end">全季 · 1晚</text></g>
+          </g>
+          <g opacity=".55" fill="#b89964"><path d="M45 395q46-72 91 0z"/><path d="M102 395q59-101 119 0z"/><path d="M743 394q45-82 89 0z"/><path d="M788 394q34-58 68 0z"/></g>
+          <text x="450" y="415" text-anchor="middle" font-size="11" fill="#7d705b" letter-spacing="3">路线为手绘示意 · 非精确比例地图</text>
+        </svg>
+        <div class="map-legend">
+          <span class="legend-chip" style="--c:#d86b55"><i></i>09.26–28 库车</span>
+          <span class="legend-chip" style="--c:#d4933d"><i></i>09.28–29 阿拉尔</span>
+          <span class="legend-chip" style="--c:#2f8170"><i></i>09.29–30 和田</span>
+          <span class="legend-chip" style="--c:#4b87ad"><i></i>09.30–10.01 昆仑</span>
+          <span class="legend-chip" style="--c:#8b6aaa"><i></i>10.01–03 喀什</span>
+          <span class="legend-chip" style="--c:#bf594d"><i></i>10.03–04 塔县</span>
+        </div>
+      </div>
+      <div class="alert-stack">
+        <div class="alert"><b>还车时间冲突</b>10月5日原约12:00还车，但航班10:55起飞。须改到07:30–08:00，并尽量改为机场酒店或机场交车。</div>
+        <div class="alert"><b>4人房量待复核</b>截图中除10月4日全季显示2间外，多数订单显示1间。请确认其余房间由同行人另订，或房型确实允许4位成人。</div>
+        <div class="alert"><b>双节客流叠加</b>9月25–27日中秋、10月1–7日国庆。热门景区、G314及帕米尔沿线会明显拥堵，门票与边境通行证应立即处理。</div>
+      </div>
+    </section>
+
+    <section id="bookings">
+      <div class="section-kicker">Confirmed</div>
+      <h2 class="section-title">已经确认的预订</h2>
+      <p class="section-note">以下仅保留出行必需信息；订单号、确认号、房间号和个人资料均未展示。</p>
+
+      <div class="booking-group">
+        <div class="subhead"><h3>机票</h3><span>5段</span></div>
+        <div class="booking-grid">
+          <article class="card booking"><i class="stamp">已出票</i><div class="type">9月25日 · 四川航空 3U3270</div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=上海浦东国际机场T2&city=上海&src=xj2026&callnative=1">上海浦东 T2</a><span class="arrow">→</span><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=西安咸阳国际机场T5&city=西安&src=xj2026&callnative=1">西安咸阳 T5</a></h4><p><span class="bigtime">20:55</span> 起飞 · 23:30 抵达</p><p>机场过夜中转 12小时15分；下一程仍在 T5。</p></article>
+          <article class="card booking"><i class="stamp">已出票</i><div class="type">9月26日 · 东方航空 MU6267</div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=西安咸阳国际机场T5&city=西安&src=xj2026&callnative=1">西安咸阳 T5</a><span class="arrow">→</span><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=库车龟兹机场&city=库车&src=xj2026&callnative=1">库车龟兹</a></h4><p><span class="bigtime">11:45</span> 起飞 · 16:00 抵达</p><p>落地后约1小时取车，给行李与门店交接留足时间。</p></article>
+          <article class="card booking"><i class="stamp">已出票</i><div class="type">10月1日 · 南方航空 CZ6964</div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=和田昆冈机场&city=和田&src=xj2026&callnative=1">和田昆冈</a><span class="arrow">→</span><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什徕宁国际机场T2&city=喀什&src=xj2026&callnative=1">喀什徕宁 T2</a></h4><p><span class="bigtime">23:35</span> 起飞 · 次日00:45抵达</p><p>希尔顿订房从10月1日起算，务必提前告知凌晨到店并保留房间。</p></article>
+          <article class="card booking"><i class="stamp">已出票</i><div class="type">10月5日 · 南航 CZ5703 / 厦航 MF8432</div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什徕宁国际机场T2&city=喀什&src=xj2026&callnative=1">喀什</a><span class="arrow">→</span><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=成都天府国际机场T2&city=成都&src=xj2026&callnative=1">成都 T2</a><span class="arrow">→</span><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=厦门高崎国际机场T3&city=厦门&src=xj2026&callnative=1">厦门 T3</a></h4><p>10:55 → 15:30 ／ 17:45 → 20:25</p><p>成都同航站楼中转2小时15分；在喀什确认行李能否直挂厦门。</p></article>
+        </div>
+      </div>
+
+      <div class="booking-group">
+        <div class="subhead"><h3>门票</h3><span>1项</span></div>
+        <div class="booking-grid">
+          <article class="card booking"><i class="stamp">已付款</i><div class="type">9月27日 · 4人</div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=克孜尔石窟&city=拜城&src=xj2026&callnative=1">克孜尔石窟</a>全价票</h4><p><span class="bigtime">全天有效</span> · 2026年9月27日</p><p>一个二维码可核验4次，覆盖本行4人；公开页面不展示二维码或订单信息。</p></article>
+        </div>
+      </div>
+
+      <div class="booking-group">
+        <div class="subhead"><h3>租车</h3><span>2段</span></div>
+        <div class="booking-grid">
+          <article class="card booking"><i class="stamp">已确认</i><div class="type">第一段 · 坦克300 / 自动 / 2.0T / 5座</div><h4>库车取车 <span class="arrow">→</span> 和田还车</h4><p><b>取：</b>9月26日 17:00 · <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=库车龟兹机场&city=库车&src=xj2026&callnative=1">库车龟兹机场服务点</a></p><p><b>还：</b>10月1日 21:00 · <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=和田昆冈机场&city=和田&src=xj2026&callnative=1">和田昆冈机场服务点</a></p><p>5天4小时 · 站内取还</p></article>
+          <article class="card booking"><i class="stamp">需改时间</i><div class="type">第二段 · 店员送取车</div><h4>喀什站取还</h4><p><b>取：</b>10月3日 08:00 · <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什站地下停车场&city=喀什&src=xj2026&callnative=1">喀什站地下停车场</a></p><p><b>原还：</b>10月5日 12:00（与航班冲突）</p><p><b>建议：</b>10月5日 07:30–08:00，改在机场酒店或机场交车。</p></article>
+        </div>
+      </div>
+
+      <div class="booking-group">
+        <div class="subhead"><h3>住宿</h3><span>9晚 + 机场过夜</span></div>
+        <div class="hotel-list">
+          <article class="card hotel"><div class="hotel-date">09.25<small>西安 · 机场过夜</small></div><div><h4>西安咸阳国际机场 T5</h4><p>不订酒店；抵达与次日出发均为 T5。优先找安静休息区，充电与洗漱用品随身带。</p></div><div class="hotel-actions"><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=西安咸阳国际机场T5&city=西安&src=xj2026&callnative=1">地图</a></div></article>
+          <article class="card hotel"><div class="hotel-date">09.26–28<small>库车 · 2晚</small></div><div><h4>西悦宿集度假民宿（库车龟兹小巷店）</h4><p>新疆库车实验井路，库车市中医医院东门南约60米</p><p>电话：19039988735 ／ 0997-7999988</p></div><div class="hotel-actions"><a class="mini-btn" href="tel:09977999988">拨号</a><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=西悦宿集度假民宿库车龟兹小巷店&city=库车&src=xj2026&callnative=1">导航</a></div></article>
+          <article class="card hotel"><div class="hotel-date">09.28–29<small>阿拉尔 · 1晚</small></div><div><h4>雷迪森怿曼酒店（阿拉尔沙漠之门店）</h4><p>新疆阿拉尔塔克拉玛干景区游客中心北侧约20米</p><p>塔里木文旅集团联系：0997-8660860；酒店直线请从订单页再次确认。</p></div><div class="hotel-actions"><a class="mini-btn" href="tel:09978660860">拨号</a><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=雷迪森怿曼酒店阿拉尔沙漠之门店&city=阿拉尔&src=xj2026&callnative=1">导航</a></div></article>
+          <article class="card hotel"><div class="hotel-date">09.29–30<small>和田 · 1晚</small></div><div><h4>和田站乌鲁木齐北路亚朵酒店</h4><p>新疆和田市乌鲁木齐北路444号17号楼</p><p>电话：0903-6663666</p></div><div class="hotel-actions"><a class="mini-btn" href="tel:09036663666">拨号</a><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=和田站乌鲁木齐北路亚朵酒店&city=和田&src=xj2026&callnative=1">导航</a></div></article>
+          <article class="card hotel"><div class="hotel-date">09.30–10.01<small>策勒 · 1晚</small></div><div><h4>和田归址野奢民宿（昆仑天路店）</h4><p>新疆策勒兰干阿克旁，昆仑山景区内</p><p>电话：18194951298 · 16:00后入住；晚到需提前联系</p></div><div class="hotel-actions"><a class="mini-btn" href="tel:18194951298">拨号</a><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=和田归址野奢民宿昆仑天路店&city=策勒&src=xj2026&callnative=1">导航</a></div></article>
+          <article class="card hotel"><div class="hotel-date">10.01–03<small>喀什 · 2晚</small></div><div><h4>喀什古城希尔顿惠庭酒店</h4><p>新疆喀什市明宇路1号</p><p>电话：0998-6618886 · 入住14:00／退房12:00</p></div><div class="hotel-actions"><a class="mini-btn" href="tel:09986618886">拨号</a><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=喀什古城希尔顿惠庭酒店&city=喀什&src=xj2026&callnative=1">导航</a></div></article>
+          <article class="card hotel"><div class="hotel-date">10.03–04<small>塔县 · 1晚</small></div><div><h4>喀什塔县帕米尔旅游区亚朵酒店</h4><p>新疆塔什库尔干塔吉克自治县中巴友谊路049号</p><p>电话：0998-2620000 · 酒店有供氧设施</p></div><div class="hotel-actions"><a class="mini-btn" href="tel:09982620000">拨号</a><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=喀什塔县帕米尔旅游区亚朵酒店&city=塔什库尔干&src=xj2026&callnative=1">导航</a></div></article>
+          <article class="card hotel"><div class="hotel-date">10.04–05<small>喀什机场 · 1晚</small></div><div><h4>全季酒店（喀什徕宁机场自由贸易试验区店）</h4><p>新疆喀什市雄安大道与广东路东南角，叶城产业园综合楼101室</p><p>电话：0998-2203331 · 距机场约9.1公里／驾车约16分钟</p></div><div class="hotel-actions"><a class="mini-btn" href="tel:09982203331">拨号</a><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=全季酒店喀什徕宁机场自由贸易试验区店&city=喀什&src=xj2026&callnative=1">导航</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="days">
+      <div class="section-kicker">Day by day</div>
+      <h2 class="section-title">逐日建议行程</h2>
+      <p class="section-note">航班、住宿与租车时间为硬锚点；景点为当前建议版。每个地点可点开高德地图，每天的路线条可展开。</p>
+      <div class="day-list">
+
+        <article class="card day" style="--day:#c95347">
+          <header class="day-head"><div class="date-tile"><b>25</b><span>SEP · FRI</span></div><div class="day-title"><h3>上海 → 西安｜中秋夜启程</h3><p>住宿：西安咸阳机场 T5 过夜</p></div><div class="day-state">航班日</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>上海市区</div><span class="route-stroke"></span><div class="route-stop"><i></i>浦东 T2</div><span class="route-stroke"></span><div class="route-stop"><i></i>西安 T5</div></div><div class="route-action"><small>机场段以公共交通/送机为准</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/search?keyword=上海浦东国际机场T2&city=上海&src=xj2026&callnative=1">打开机场</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>18:30</time><i class="event-dot"></i><div><h4>建议抵达 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=上海浦东国际机场T2&city=上海&src=xj2026&callnative=1">上海浦东国际机场 T2</a></h4><p>中秋假期首日，预留值机、托运及安检排队时间。</p></div></div>
+            <div class="event"><time>20:55</time><i class="event-dot"></i><div><h4>四川航空 3U3270 起飞 <span class="tag ok">已出票</span></h4><p>上海浦东 T2 → 西安咸阳 T5。</p></div></div>
+            <div class="event"><time>23:30</time><i class="event-dot"></i><div><h4>抵达 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=西安咸阳国际机场T5&city=西安&src=xj2026&callnative=1">西安咸阳 T5</a></h4><p>不出机场远行；确认次日值机柜台与安检开放时间，找休息区过夜。</p></div></div>
+          </div>
+        </article>
+
+        <article class="card day" style="--day:#d97645">
+          <header class="day-head"><div class="date-tile"><b>26</b><span>SEP · SAT</span></div><div class="day-title"><h3>西安 → 库车｜落地龟兹</h3><p>住宿：西悦宿集度假民宿</p></div><div class="day-state">取车 · 自由活动</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>西安 T5</div><span class="route-stroke"></span><div class="route-stop"><i></i>库车机场</div><span class="route-stroke"></span><div class="route-stop"><i></i>西悦宿集</div></div><div class="route-action"><small>当日只设硬行程：机场 → 酒店</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=82.8726,41.7158,库车龟兹机场&to=82.9290,41.7170,西悦宿集&mode=car&policy=1&src=xj2026&callnative=1">落地导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>09:30</time><i class="event-dot"></i><div><h4>回到 T5 办理出发手续</h4><p>机场过夜后先洗漱、吃早餐；不要睡过下一程。</p></div></div>
+            <div class="event"><time>11:45</time><i class="event-dot"></i><div><h4>东方航空 MU6267 起飞 <span class="tag ok">已出票</span></h4><p>西安咸阳 T5 → 库车龟兹。</p></div></div>
+            <div class="event"><time>16:00</time><i class="event-dot"></i><div><h4>抵达 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=库车龟兹机场&city=库车&src=xj2026&callnative=1">库车龟兹机场</a></h4><p>取行李后联系租车门店。</p></div></div>
+            <div class="event"><time>17:00</time><i class="event-dot"></i><div><h4>机场服务点取坦克300 <span class="tag ok">已确认</span></h4><p>带驾驶员身份证、驾照原件/电子驾照；环车录像并核对车损、轮胎、备胎、油量和救援电话。</p></div></div>
+            <div class="event"><time>18:15</time><i class="event-dot"></i><div><h4>入住 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=西悦宿集度假民宿库车龟兹小巷店&city=库车&src=xj2026&callnative=1">西悦宿集</a></h4><p>晚间不设固定安排；视体力在库车市区就近吃饭、散步，累了随时回酒店。</p></div></div>
+          </div>
+        </article>
+
+        <article class="card day" style="--day:#e0a33f">
+          <header class="day-head"><div class="date-tile"><b>27</b><span>SEP · SUN</span></div><div class="day-title"><h3>库车｜大峡谷、红山石林与克孜尔</h3><p>住宿：西悦宿集度假民宿</p></div><div class="day-state">路线已确定</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>西悦宿集</div><span class="route-stroke"></span><div class="route-stop"><i></i>天山峡谷</div><span class="route-stroke"></span><div class="route-stop"><i></i>红山石林</div><span class="route-stroke"></span><div class="route-stop"><i></i>克孜尔石窟</div></div><div class="route-action"><small>主线导航：酒店 → 大峡谷 → 克孜尔；红山石林在峡谷旁，单独点开导航</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=82.9290,41.7170,西悦宿集&to=82.5047,41.7844,克孜尔石窟&via=83.065893,42.122058,天山神秘大峡谷&mode=car&policy=1&src=xj2026&callnative=1">全天多点导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>08:00</time><i class="event-dot"></i><div><h4>从 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=西悦宿集度假民宿库车龟兹小巷店&city=库车&src=xj2026&callnative=1">西悦宿集</a> 出发</h4><p>先加满油，带足饮水、简餐和身份证。至峡谷约70公里，预留1.5小时。</p></div></div>
+            <div class="event"><time>09:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=库车天山神秘大峡谷&city=库车&src=xj2026&callnative=1">库车天山神秘大峡谷</a> <span class="tag">未购票</span></h4><p>建议游览约2.5–3小时；当前旺季信息为09:30开放，仍以出发前一日公告为准。遇降雨、山洪或落石可能临时关闭。</p></div></div>
+            <div class="event"><time>12:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=红山石林列车拍摄点&city=库车&src=xj2026&callnative=1">红山石林（红石林）</a> <span class="tag ok">机动停靠</span></h4><p>它在大峡谷附近，建议此时顺路停20–30分钟；非正式开发景点，不攀爬、不把车停在公路行车道。</p></div></div>
+            <div class="event"><time>13:10</time><i class="event-dot"></i><div><h4>午餐后前往克孜尔</h4><p>就近简餐，不等网红餐厅；石林至石窟约60公里，按实时导航预留约1–1.5小时。</p></div></div>
+            <div class="event"><time>15:00</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=克孜尔石窟&city=拜城&src=xj2026&callnative=1">克孜尔石窟</a> <span class="tag ok">4人已购票</span></h4><p>门票9月27日全天有效；携身份证并提前准备购票二维码。建议最晚15:30开始参观，现场安排以景区为准。</p></div></div>
+            <div class="event"><time>18:30</time><i class="event-dot"></i><div><h4>启程返回库车</h4><p>按当天路况预计20:00左右回到酒店；若峡谷排队延误，先压缩红山石林停留，不压缩已购票石窟。</p></div></div>
+          </div>
+          <div class="advice"><b>路线判断：</b>整体可行，但红山石林必须放在大峡谷之后、克孜尔之前；石窟后再去会折返约60公里并挤压18:30返程。红山石林是机动项，时间不够就跳过。</div>
+        </article>
+
+        <article class="card day" style="--day:#c78f32">
+          <header class="day-head"><div class="date-tile"><b>28</b><span>SEP · MON</span></div><div class="day-title"><h3>库车 → 阿拉尔｜向沙漠腹地</h3><p>住宿：雷迪森怿曼酒店（沙漠之门）</p></div><div class="day-state">自驾约4–5小时</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>西悦宿集</div><span class="route-stroke"></span><div class="route-stop"><i></i>库车王府</div><span class="route-stroke"></span><div class="route-stop"><i></i>阿拉尔</div><span class="route-stroke"></span><div class="route-stop"><i></i>沙漠之门</div></div><div class="route-action"><small>约302公里，纯驾驶约4.1小时</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=82.9290,41.7170,西悦宿集&to=81.6208,40.4674,沙漠之门&via=82.9209,41.7187,库车王府&mode=car&policy=1&src=xj2026&callnative=1">全天多点导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>09:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=库车王府&city=库车&src=xj2026&callnative=1">库车王府</a> <span class="tag">现场/线上购票</span></h4><p>周一正常开放的景区型场馆；建议控制在1–1.5小时。</p></div></div>
+            <div class="event"><time>11:20</time><i class="event-dot"></i><div><h4>退房、午餐、补给</h4><p>下一晚住在沙漠景区内，出发前补足水、零食和燃油。</p></div></div>
+            <div class="event"><time>12:30</time><i class="event-dot"></i><div><h4>自驾前往阿拉尔</h4><p>导航实时预计为准；节假日后第一天仍可能有返程车流。</p></div></div>
+            <div class="event"><time>17:30</time><i class="event-dot"></i><div><h4>入住 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=雷迪森怿曼酒店阿拉尔沙漠之门店&city=阿拉尔&src=xj2026&callnative=1">雷迪森怿曼酒店</a></h4><p>赶日落、沙漠散步；沙漠项目和晚餐建议上午致电酒店预约。</p></div></div>
+          </div>
+        </article>
+
+        <article class="card day" style="--day:#2e8a73">
+          <header class="day-head"><div class="date-tile"><b>29</b><span>SEP · TUE</span></div><div class="day-title"><h3>阿拉尔 → 和田｜穿越塔克拉玛干</h3><p>住宿：和田站乌鲁木齐北路亚朵</p></div><div class="day-state">长途驾驶</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>沙漠之门</div><span class="route-stroke"></span><div class="route-stop"><i></i>G580</div><span class="route-stroke"></span><div class="route-stop"><i></i>塔瓦库勒</div><span class="route-stroke"></span><div class="route-stop"><i></i>和田亚朵</div></div><div class="route-action"><small>约412–440公里，纯驾驶约5.5–6小时</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=81.6208,40.4674,沙漠之门&to=79.9088,37.1265,和田站乌鲁木齐北路亚朵&via=79.6680,38.0640,塔瓦库勒服务区&mode=car&policy=1&src=xj2026&callnative=1">全天多点导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>07:30</time><i class="event-dot"></i><div><h4>沙漠晨光与早餐</h4><p>不参加耗时项目，今天的核心是安全穿越。</p></div></div>
+            <div class="event"><time>08:45</time><i class="event-dot"></i><div><h4>驶入 G580 阿和公路</h4><p>出发前加满油；至少备8–12升饮水、干粮、充电宝。每2小时换人或休息。</p></div></div>
+            <div class="event"><time>12:30</time><i class="event-dot"></i><div><h4>服务区午休</h4><p>不要驶离硬化道路进入沙地；遇横风或沙尘立即降速。</p></div></div>
+            <div class="event"><time>16:00</time><i class="event-dot"></i><div><h4>入住 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=和田站乌鲁木齐北路亚朵酒店&city=和田&src=xj2026&callnative=1">和田亚朵</a></h4><p>实际可能因停靠和国道路况推迟1小时。</p></div></div>
+            <div class="event"><time>18:00</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=和田团城&city=和田&src=xj2026&callnative=1">和田团城</a>／<a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=和田夜市&city=和田&src=xj2026&callnative=1">和田夜市</a></h4><p>视体力二选一，不再安排跨城景点。</p></div></div>
+          </div>
+        </article>
+
+        <article class="card day" style="--day:#3989a6">
+          <header class="day-head"><div class="date-tile"><b>30</b><span>SEP · WED</span></div><div class="day-title"><h3>和田 → 昆仑山脚｜慢下来</h3><p>住宿：和田归址野奢民宿</p></div><div class="day-state">博物馆 + 山路</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>和田亚朵</div><span class="route-stroke"></span><div class="route-stop"><i></i>和田博物馆</div><span class="route-stroke"></span><div class="route-stop"><i></i>策勒</div><span class="route-stroke"></span><div class="route-stop"><i></i>归址野奢</div></div><div class="route-action"><small>市区至昆仑山景区约120公里／2.5–3小时</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=79.9088,37.1265,和田亚朵&to=81.0139,36.1025,归址野奢&via=79.9125,37.1180,和田地区博物馆&mode=car&policy=1&src=xj2026&callnative=1">全天多点导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>09:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=和田地区博物馆&city=和田&src=xj2026&callnative=1">和田地区博物馆</a> <span class="tag">免费预约</span></h4><p>周三不逢常规闭馆日；免费馆仍建议从官方渠道预约，携带身份证。若临时闭馆，改逛团城或玉石文化博物馆。</p></div></div>
+            <div class="event"><time>11:45</time><i class="event-dot"></i><div><h4>午餐、退房、加油</h4><p>民宿位置偏远，提前联系确认晚餐与到店时间。</p></div></div>
+            <div class="event"><time>13:00</time><i class="event-dot"></i><div><h4>前往策勒昆仑山景区</h4><p>末段有山路和急弯，天黑前抵达，不安排夜间山路。</p></div></div>
+            <div class="event"><time>16:30</time><i class="event-dot"></i><div><h4>入住 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=和田归址野奢民宿昆仑天路店&city=策勒&src=xj2026&callnative=1">归址野奢民宿</a></h4><p>下午茶、草原散步、等日落。不要把这一晚再塞进远距离景点。</p></div></div>
+          </div>
+        </article>
+
+        <article class="card day" style="--day:#597ead">
+          <header class="day-head"><div class="date-tile"><b>01</b><span>OCT · THU</span></div><div class="day-title"><h3>昆仑山脚 → 和田 → 喀什</h3><p>住宿：喀什古城希尔顿惠庭（凌晨到店）</p></div><div class="day-state">还车 + 夜航</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>归址野奢</div><span class="route-stroke"></span><div class="route-stop"><i></i>和田市区</div><span class="route-stroke"></span><div class="route-stop"><i></i>和田机场</div><span class="route-stroke"></span><div class="route-stop"><i></i>喀什酒店</div></div><div class="route-action"><small>下午必须留给返程与还车</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=81.0139,36.1025,归址野奢&to=79.8620,37.0404,和田昆冈机场&via=79.9200,37.1100,和田市区&mode=car&policy=1&src=xj2026&callnative=1">返机场多点导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>09:30</time><i class="event-dot"></i><div><h4>民宿早餐与昆仑晨景</h4><p>国庆首日，不再追加远距离景点。</p></div></div>
+            <div class="event"><time>14:30</time><i class="event-dot"></i><div><h4>最晚从民宿出发</h4><p>山路 + 国庆车流存在波动，宁可早到和田，不要压缩还车与值机时间。</p></div></div>
+            <div class="event"><time>19:30</time><i class="event-dot"></i><div><h4>抵达 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=和田昆冈机场&city=和田&src=xj2026&callnative=1">和田昆冈机场</a> 附近</h4><p>加满油、整理行李、拍摄油表和车况。</p></div></div>
+            <div class="event"><time>21:00</time><i class="event-dot"></i><div><h4>机场服务点还车 <span class="tag ok">已确认</span></h4><p>距起飞2小时35分；完成验车后立即值机安检。</p></div></div>
+            <div class="event"><time>23:35</time><i class="event-dot"></i><div><h4>南方航空 CZ6964 起飞</h4><p>和田昆冈 → 喀什徕宁 T2。</p></div></div>
+            <div class="event"><time>00:45</time><i class="event-dot"></i><div><h4>次日抵达喀什</h4><p>预计01:30后入住希尔顿惠庭。必须提前通知酒店“保留10月1日晚房间”。</p></div></div>
+          </div>
+        </article>
+
+        <article class="card day" style="--day:#8b67a8">
+          <header class="day-head"><div class="date-tile"><b>02</b><span>OCT · FRI</span></div><div class="day-title"><h3>喀什｜博物馆与古城烟火</h3><p>住宿：喀什古城希尔顿惠庭</p></div><div class="day-state">慢游日</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>希尔顿惠庭</div><span class="route-stroke"></span><div class="route-stop"><i></i>喀什博物馆</div><span class="route-stroke"></span><div class="route-stop"><i></i>喀什古城</div><span class="route-stroke"></span><div class="route-stop"><i></i>汗巴扎</div></div><div class="route-action"><small>市区建议打车，避免国庆停车难</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=75.9820,39.4550,希尔顿惠庭&to=75.9907,39.4716,喀什古城&via=75.9962,39.4956,喀什地区博物馆&mode=car&policy=1&src=xj2026&callnative=1">全天多点导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>10:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什地区博物馆&city=喀什&src=xj2026&callnative=1">喀什地区博物馆</a> <span class="tag">免费预约</span></h4><p>周五不逢常规闭馆日；通常周一闭馆、节假日除外。国庆具体开放以馆方临时公告为准。地址：天山西路28号，咨询0998-2592999。</p></div></div>
+            <div class="event"><time>13:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什古城东门&city=喀什&src=xj2026&callnative=1">喀什古城东区</a></h4><p>花盆巴扎、木器巴扎、民居巷道；不追网红机位，给步行与休息留时间。</p></div></div>
+            <div class="event"><time>17:00</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=艾提尕尔清真寺&city=喀什&src=xj2026&callnative=1">艾提尕尔广场</a>与古城西区</h4><p>进入宗教场所注意着装和礼仪，礼拜时段以现场管理为准。</p></div></div>
+            <div class="event"><time>19:00</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什古城汗巴扎&city=喀什&src=xj2026&callnative=1">汗巴扎</a>晚餐</h4><p>当晚确认第二天租车送达、车况与是否允许驶入边境管理区。</p></div></div>
+          </div>
+          <div class="advice"><b>边境证：</b>2026年已启用电子边境管理区通行证。16周岁以上中国内地居民可用“移民局12367”App或微信/支付宝小程序申请；出发塔县前确保4人证件均已生效。</div>
+        </article>
+
+        <article class="card day" style="--day:#bd5b4d">
+          <header class="day-head"><div class="date-tile"><b>03</b><span>OCT · SAT</span></div><div class="day-title"><h3>喀什 → 塔县｜驶上中巴友谊路</h3><p>住宿：喀什塔县帕米尔旅游区亚朵</p></div><div class="day-state">高原长日</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>喀什站</div><span class="route-stroke"></span><div class="route-stop"><i></i>白沙湖</div><span class="route-stroke"></span><div class="route-stop"><i></i>喀拉库里湖</div><span class="route-stroke"></span><div class="route-stop"><i></i>塔县亚朵</div></div><div class="route-action"><small>约290公里，含停靠需9–11小时</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=76.0768,39.5154,喀什站&to=75.2292,37.7819,塔什库尔干&via=75.0536,38.4453,喀拉库里湖&mode=car&policy=1&src=xj2026&callnative=1">全天多点导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>07:15</time><i class="event-dot"></i><div><h4>退房，前往 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什站地下停车场&city=喀什&src=xj2026&callnative=1">喀什站地下停车场</a></h4><p>国庆车流下预留打车时间；早餐打包。</p></div></div>
+            <div class="event"><time>08:00</time><i class="event-dot"></i><div><h4>店员送车、签约取车 <span class="tag ok">已确认</span></h4><p>确认车辆允许去塔县；检查轮胎与防滑设备，环车录像。门店应在取车前30分钟联系。</p></div></div>
+            <div class="event"><time>11:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=白沙湖景区&city=阿克陶&src=xj2026&callnative=1">白沙湖</a> <span class="tag">提前购票</span></h4><p>海拔迅速上升，慢走、多喝水，不跑跳。国庆排队与检查站会拉长车程。</p></div></div>
+            <div class="event"><time>14:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀拉库里湖景区&city=阿克陶&src=xj2026&callnative=1">喀拉库里湖</a> <span class="tag">提前购票</span></h4><p>湖面海拔约3600米，远眺慕士塔格峰；停留约1小时，体感不适立即下撤。</p></div></div>
+            <div class="event"><time>18:30</time><i class="event-dot"></i><div><h4>抵达塔县，入住 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什塔县帕米尔旅游区亚朵酒店&city=塔什库尔干&src=xj2026&callnative=1">亚朵酒店</a></h4><p>晚餐清淡、不饮酒、早休息。若路上拥堵，可能20:00后到达。</p></div></div>
+          </div>
+        </article>
+
+        <article class="card day" style="--day:#885a74">
+          <header class="day-head"><div class="date-tile"><b>04</b><span>OCT · SUN</span></div><div class="day-title"><h3>塔县 → 喀什｜石头城后返程</h3><p>住宿：全季喀什徕宁机场店</p></div><div class="day-state">返程约6小时</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>塔县亚朵</div><span class="route-stroke"></span><div class="route-stop"><i></i>石头城</div><span class="route-stroke"></span><div class="route-stop"><i></i>喀什机场店</div></div><div class="route-action"><small>中午前离开塔县，避免夜间跑G314</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=75.2292,37.7819,塔县亚朵&to=76.0200,39.5350,全季喀什机场店&via=75.2167,37.7667,石头城&mode=car&policy=1&src=xj2026&callnative=1">全天多点导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>08:30</time><i class="event-dot"></i><div><h4><a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=帕米尔旅游区石头城金草滩&city=塔什库尔干&src=xj2026&callnative=1">石头城与金草滩</a> <span class="tag">提前购票</span></h4><p>控制在2小时内。国庆热门时段可能限流或排队。</p></div></div>
+            <div class="event"><time>11:15</time><i class="event-dot"></i><div><h4>午餐、退房、加油</h4><p>检查G314实时路况，最晚12:30离开塔县。</p></div></div>
+            <div class="event"><time>12:30</time><i class="event-dot"></i><div><h4>返喀什</h4><p>纯驾驶约5.5–6小时，叠加检查站与国庆车流可能更久；两名司机轮换。</p></div></div>
+            <div class="event"><time>19:00</time><i class="event-dot"></i><div><h4>入住 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=全季酒店喀什徕宁机场自由贸易试验区店&city=喀什&src=xj2026&callnative=1">全季机场店</a></h4><p>加满油、整理行李；与门店敲定次晨提前还车地点与时间。</p></div></div>
+          </div>
+          <div class="advice"><b>不建议把盘龙古道塞入主计划：</b>盘龙古道环线 + 返回喀什会形成超长驾驶日，且高原天气可能触发临时管制。若坚持前往，须放弃石头城、天亮出发，并在前一晚确认道路开放、轮胎要求与车辆许可。</div>
+        </article>
+
+        <article class="card day" style="--day:#244e77">
+          <header class="day-head"><div class="date-tile"><b>05</b><span>OCT · MON</span></div><div class="day-title"><h3>喀什 → 成都 → 厦门｜返程</h3><p>10:55起飞，成都同航站楼中转2小时15分</p></div><div class="day-state">必须改还车</div></header>
+          <details class="route-details"><summary>展开当日路线</summary><div class="route-content"><div class="route-line"><div class="route-stop"><i></i>全季酒店</div><span class="route-stroke"></span><div class="route-stop"><i></i>提前还车</div><span class="route-stroke"></span><div class="route-stop"><i></i>喀什 T2</div><span class="route-stroke"></span><div class="route-stop"><i></i>厦门 T3</div></div><div class="route-action"><small>酒店距机场约9.1公里／16分钟</small><a class="mini-btn primary" target="_blank" href="https://uri.amap.com/navigation?from=76.0200,39.5350,全季喀什机场店&to=76.0199,39.5429,喀什徕宁国际机场T2&mode=car&policy=1&src=xj2026&callnative=1">去机场导航</a></div></div></details>
+          <div class="timeline">
+            <div class="event"><time>07:20</time><i class="event-dot"></i><div><h4>退房并完成还车</h4><p><b>原订单12:00不可执行。</b>需改为07:30–08:00在机场酒店或机场交车；保留验车凭证。</p></div></div>
+            <div class="event"><time>08:30</time><i class="event-dot"></i><div><h4>抵达 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=喀什徕宁国际机场T2&city=喀什&src=xj2026&callnative=1">喀什徕宁 T2</a></h4><p>在柜台确认两段登机牌及行李是否直挂厦门；若不能直挂，成都中转时间偏紧，立即询问中转保障。</p></div></div>
+            <div class="event"><time>10:55</time><i class="event-dot"></i><div><h4>南方航空 CZ5703 起飞</h4><p>15:30抵达成都天府 T2。</p></div></div>
+            <div class="event"><time>17:45</time><i class="event-dot"></i><div><h4>厦门航空 MF8432 起飞</h4><p>成都天府 T2 → 厦门高崎 T3。</p></div></div>
+            <div class="event"><time>20:25</time><i class="event-dot"></i><div><h4>抵达 <a class="place-link" target="_blank" href="https://uri.amap.com/search?keyword=厦门高崎国际机场T3&city=厦门&src=xj2026&callnative=1">厦门高崎 T3</a></h4><p>旅程结束。</p></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="todos">
+      <div class="section-kicker">Before you go</div>
+      <h2 class="section-title">待办清单</h2>
+      <p class="section-note">这是四人共用的公开清单，不做浏览器本地勾选。办完一项后告诉我，我会直接更新页面。</p>
+      <div class="todo-list">
+        <article class="card todo"><div><b>修改10月5日还车时间与地点</b><p>改为07:30–08:00，优先在全季酒店或喀什机场交车；原12:00与航班硬冲突。</p></div><span class="priority">立即</span></article>
+        <article class="card todo"><div><b>核对所有住宿是否覆盖4位成人</b><p>截图除全季外多显示1间；确认同行人另有订单，或房型明确允许4位成人入住。</p></div><span class="priority">立即</span></article>
+        <article class="card todo"><div><b>4人申领电子边境管理区通行证</b><p>“移民局12367”App或微信/支付宝小程序办理，范围至少覆盖喀什地区、克州与塔县；出发前截图离线保存。</p></div><span class="priority">立即</span></article>
+        <article class="card todo"><div><b>购买9月27日天山神秘大峡谷门票</b><p>克孜尔石窟4人票已购；大峡谷尚未购票。建议尽快按官方可售时段购买，并在9月26日晚复核天气与临时闭园公告。</p></div><span class="priority">高风险</span></article>
+        <article class="card todo"><div><b>购买帕米尔沿线景区票</b><p>10月3日白沙湖、喀拉库里湖；10月4日石头城/金草滩。国庆假期按实名制提前锁定。</p></div><span class="priority">高风险</span></article>
+        <article class="card todo"><div><b>预约免费博物馆</b><p>9月30日和田地区博物馆、10月2日喀什地区博物馆；关注国庆专项开放公告并带身份证。</p></div><span class="priority mid">提前3–7天</span></article>
+        <article class="card todo"><div><b>通知喀什希尔顿凌晨到店</b><p>预订从10月1日开始，但航班10月2日00:45才落地；提前要求保留房间，避免被判“未到店”。</p></div><span class="priority">必须</span></article>
+        <article class="card todo"><div><b>确认回程行李能否直挂厦门</b><p>喀什柜台确认两段登机牌与行李直挂。成都只有2小时15分，同航站楼也不宜现场猜测。</p></div><span class="priority mid">出发前</span></article>
+        <article class="card todo"><div><b>致电归址民宿与沙漠之门酒店</b><p>确认晚餐、最晚到店、景区活动及雷迪森前台直线；偏远住宿不要到店后再解决餐食。</p></div><span class="priority mid">提前2天</span></article>
+        <article class="card todo"><div><b>确认塔县租车许可与车辆配置</b><p>确认允许进入边境管理区；检查轮胎、备胎、防滑设备、保险、异地救援和违章处理。</p></div><span class="priority mid">取车前</span></article>
+      </div>
+    </section>
+
+    <section id="tips">
+      <div class="section-kicker">Field notes</div>
+      <h2 class="section-title">实用贴士</h2>
+      <div class="tips-grid">
+        <article class="card tip"><div class="icon">☀︎</div><h3>时差感</h3><p>新疆统一使用北京时间，但体感日出日落比东部晚约2小时。不要因为天还亮就不断加行程。</p></article>
+        <article class="card tip"><div class="icon">△</div><h3>高原反应</h3><p>白沙湖、喀拉库里湖快速升至约3300–3600米。慢走、补水、不饮酒；持续头痛、呕吐、呼吸困难立即下撤。</p></article>
+        <article class="card tip"><div class="icon">↯</div><h3>双节车流</h3><p>9月25–27日中秋，10月1–7日国庆。景区入口、G314检查站与喀什古城停车最容易延误。</p></article>
+        <article class="card tip"><div class="icon">⌁</div><h3>沙漠公路</h3><p>G580出发前加满油，备饮水和干粮，每2小时休息。横风、沙尘时降速，不驶离铺装路面。</p></article>
+        <article class="card tip"><div class="icon">❋</div><h3>穿衣装备</h3><p>分层穿着：速干层、抓绒/薄羽绒、防风外壳；另带遮阳帽、墨镜、防晒、防滑鞋和润唇膏。</p></article>
+        <article class="card tip"><div class="icon">⌁</div><h3>网络与离线</h3><p>本手册本身可离线查看；高德导航、实时路况和电话需要网络。出发前把关键页面与证件截图下载到手机。</p></article>
+        <article class="card tip"><div class="icon">◎</div><h3>取还车拍摄</h3><p>四角、轮毂、玻璃、车顶、底盘可见处、油表与里程全部录像；交车后保留电子验车单。</p></article>
+        <article class="card tip"><div class="icon">◇</div><h3>现金与证件</h3><p>身份证、驾驶证随身不托运；偏远地区备少量现金。证件照片仅保存在个人手机，不发到公开页面。</p></article>
+        <article class="card tip"><div class="icon">♨</div><h3>饮食节奏</h3><p>长途日早餐吃足、午餐简化；高原日少油少酒。四人轮流提醒补水，别等口渴才喝。</p></article>
+      </div>
+      <div class="card hotline"><div><strong>常用紧急电话</strong><p>遇事故先保证人员安全，再联系租车救援与保险。</p></div><div class="hotline-links"><a class="mini-btn" href="tel:110">公安 110</a><a class="mini-btn" href="tel:120">急救 120</a><a class="mini-btn" href="tel:12122">高速救援 12122</a><a class="mini-btn" href="tel:12345">政务热线 12345</a></div></div>
+    </section>
+
+    <footer><div class="seal">疆行</div><div>愿你们一路有风、有光，也永远留有回程的余量。</div></footer>
+  </main>
+  <div class="offline-toast" id="offlineToast">当前离线：手册可看，地图导航需联网</div>
+
+  <script>
+    const events = [
+      {t:'2026-09-25T18:30:00+08:00',title:'抵达上海浦东 T2',meta:'9月25日 周五 · 建议值机时间',hint:'中秋首日，至少提前2小时到机场'},
+      {t:'2026-09-25T20:55:00+08:00',title:'3U3270 上海 → 西安',meta:'四川航空 · 浦东T2出发',hint:'23:30抵达西安咸阳T5'},
+      {t:'2026-09-26T09:30:00+08:00',title:'返回西安 T5 办理出发手续',meta:'机场过夜后先早餐、洗漱',hint:'MU6267 将于11:45起飞'},
+      {t:'2026-09-26T11:45:00+08:00',title:'MU6267 西安 → 库车',meta:'东方航空 · 西安T5出发',hint:'16:00抵达库车龟兹机场'},
+      {t:'2026-09-26T17:00:00+08:00',title:'库车机场取车',meta:'坦克300 · 机场服务点',hint:'取车先录像，确认油量与车损'},
+      {t:'2026-09-27T08:00:00+08:00',title:'出发去天山神秘大峡谷',meta:'大峡谷 → 红山石林 → 克孜尔石窟',hint:'带水、简餐、防滑鞋、身份证与购票二维码'},
+      {t:'2026-09-28T09:30:00+08:00',title:'库车王府',meta:'上午短游，午后驶往阿拉尔',hint:'12:30前启程，争取赶上沙漠日落'},
+      {t:'2026-09-29T08:45:00+08:00',title:'驶入 G580 阿和公路',meta:'阿拉尔 → 和田 · 沙漠穿越',hint:'加满油，备8–12升饮水'},
+      {t:'2026-09-30T09:30:00+08:00',title:'和田地区博物馆',meta:'免费馆 · 需提前预约',hint:'13:00后前往昆仑山脚'},
+      {t:'2026-10-01T14:30:00+08:00',title:'从昆仑山脚返回和田',meta:'当晚21:00还车、23:35起飞',hint:'国庆首日，宁可早到不要压线'},
+      {t:'2026-10-01T21:00:00+08:00',title:'和田机场还车',meta:'昆冈机场服务点',hint:'加满油、拍照、保留验车凭证'},
+      {t:'2026-10-01T23:35:00+08:00',title:'CZ6964 和田 → 喀什',meta:'次日00:45抵达喀什T2',hint:'已提前通知酒店凌晨到店'},
+      {t:'2026-10-02T10:30:00+08:00',title:'喀什地区博物馆',meta:'博物馆 + 古城慢游日',hint:'携身份证，按国庆专项公告执行'},
+      {t:'2026-10-03T08:00:00+08:00',title:'喀什站取车',meta:'店员送车至地下停车场',hint:'确认边境证与塔县用车许可'},
+      {t:'2026-10-03T11:30:00+08:00',title:'抵达白沙湖',meta:'沿 G314 驶向帕米尔',hint:'慢走补水，留意高原反应'},
+      {t:'2026-10-04T08:30:00+08:00',title:'石头城与金草滩',meta:'中午前离开塔县返喀什',hint:'不把盘龙古道硬塞进返程日'},
+      {t:'2026-10-05T07:20:00+08:00',title:'提前还车并前往机场',meta:'必须已将原12:00还车改早',hint:'08:30前抵达喀什徕宁T2'},
+      {t:'2026-10-05T10:55:00+08:00',title:'CZ5703 喀什 → 成都',meta:'15:30抵达成都天府T2',hint:'确认行李直挂与两段登机牌'},
+      {t:'2026-10-05T17:45:00+08:00',title:'MF8432 成都 → 厦门',meta:'成都天府T2出发',hint:'20:25抵达厦门高崎T3'},
+      {t:'2026-10-05T20:25:00+08:00',title:'抵达厦门，旅程结束',meta:'厦门高崎国际机场 T3',hint:'平安到家'}
+    ];
+    const $ = id => document.getElementById(id);
+    function renderCountdown(){
+      const now = new Date();
+      let next = events.find(e => new Date(e.t) > now);
+      if(!next){
+        $('nextTitle').textContent='旅程已经圆满结束';
+        $('nextMeta').textContent='从龟兹到帕米尔，愿回忆一直有光';
+        ['cdD','cdH','cdM','cdS'].forEach(id=>$(id).textContent='00');
+        $('focusHint').textContent='欢迎随时回来翻看这本手册'; return;
+      }
+      const diff=Math.max(0,new Date(next.t)-now), day=86400000, hour=3600000, minute=60000;
+      $('cdD').textContent=String(Math.floor(diff/day)).padStart(2,'0');
+      $('cdH').textContent=String(Math.floor(diff%day/hour)).padStart(2,'0');
+      $('cdM').textContent=String(Math.floor(diff%hour/minute)).padStart(2,'0');
+      $('cdS').textContent=String(Math.floor(diff%minute/1000)).padStart(2,'0');
+      $('nextTitle').textContent=next.title;$('nextMeta').textContent=next.meta;$('focusHint').textContent=next.hint;
+    }
+    renderCountdown();setInterval(renderCountdown,1000);
+    const toast=$('offlineToast');
+    function netState(){toast.classList.toggle('show',!navigator.onLine)}
+    addEventListener('online',netState);addEventListener('offline',netState);netState();
+    document.querySelectorAll('a[href^="https://uri.amap.com"]').forEach(a=>a.addEventListener('click',()=>{
+      if(!navigator.onLine){toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3000)}
+    }));
+  </script>
+</body>
+</html>
